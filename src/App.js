@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import CheckComponent from './SetupTest/CheckComponent';
+// import CheckComponent from './SetupTest/CheckComponent';
+import IndexPage from './Pages';
 
 function App() {
   return (
     <div className="App">
-      <CheckComponent />
+      {/* <CheckComponent />  */}
+      <IndexPage />
     </div>
   );
 }
