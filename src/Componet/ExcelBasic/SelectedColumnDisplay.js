@@ -26,6 +26,23 @@ const SelectedColumnDisplay = ({ fileUrl, selectedHeaders }) => {
             console.log("error")
         }
     }
+
+    const handleGenerateDataExcel = async () => {
+        try {
+            const payload = {
+                "file_url": fileUrl,
+                "headers": selectedHeaders,
+                "count": 20
+            }
+
+            await axiosInstance.post("/generateExcelByColumns", payload);
+
+        }
+        catch {
+            console.log("error")
+        }
+    }
+    
     
     return (
         <div>
@@ -34,7 +51,7 @@ const SelectedColumnDisplay = ({ fileUrl, selectedHeaders }) => {
                 return( <div>{itm}</div> )
             })} */}
             <div>
-                <button onClick={handleGenerateData}>Generate New Excel</button> <span>Note: New excel will be created with new columns selected</span>
+                <button onClick={handleGenerateDataExcel}>Generate New Excel</button> <span>Note: New excel will be created with new columns selected</span>
             </div>
 
             <div>
