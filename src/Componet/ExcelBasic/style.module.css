@@ -26,6 +26,13 @@
     height: auto;
 }
 
+.notes {
+    font-size: 14px;
+    margin-left: 15px;
+    font-weight: 200;
+    color: rgb(115, 122, 118);
+}
+
 .columnDisp {
     padding: 5px 15px;
     cursor: pointer;

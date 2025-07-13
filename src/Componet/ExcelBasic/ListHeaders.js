@@ -41,7 +41,7 @@ const ListHeaders = ({fileUrl, selectedHeaders, setSelectedHeaders}) => {
             <h3>Headers List</h3>
             <div className={styles.headerList} >
                     {headerData.length > 0 && headerData.map((itm) => {
-                        return <div className={selectedHeaders.includes(itm) ? styles.columnDispActive : styles.columnDisp} onClick={() => handleHeaderList(itm)}>{itm}{selectedHeaders.includes(itm) ? <span className={styles.removeIcon}>x</span> : null}</div>
+                        return <div className={selectedHeaders.includes(itm) ? styles.columnDispActive : styles.columnDisp} onClick={() => handleHeaderList(itm)}>{itm}{selectedHeaders.includes(itm) ? <span className={styles.removeIcon}>x</span> : <span className={styles.removeIcon}>+</span> }</div>
                     })}
             </div>
         </div>
