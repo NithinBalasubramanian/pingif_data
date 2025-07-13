@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../Api/AxiosInstance";
+import styles from './style.module.css'
 
 const ListHeaders = ({fileUrl, selectedHeaders, setSelectedHeaders}) => {
 
@@ -38,12 +39,10 @@ const ListHeaders = ({fileUrl, selectedHeaders, setSelectedHeaders}) => {
     return (
         <div>
             <h3>Headers List</h3>
-            <div className={"headerList"} >
-                <ul>
+            <div className={styles.headerList} >
                     {headerData.length > 0 && headerData.map((itm) => {
-                        return <li onClick={() => handleHeaderList(itm)}>{itm}</li>
+                        return <div className={selectedHeaders.includes(itm) ? styles.columnDispActive : styles.columnDisp} onClick={() => handleHeaderList(itm)}>{itm}{selectedHeaders.includes(itm) ? <span className={styles.removeIcon}>x</span> : null}</div>
                     })}
-                </ul>
             </div>
         </div>
     )

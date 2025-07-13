@@ -1,13 +1,19 @@
 // src/components/FileUpload.jsx
 import React, { useState } from 'react';
 import axiosInstance from '../../Api/AxiosInstance';
+import { FileUploader } from "react-drag-drop-files";
+import styles from './style.module.css'
+
+
+const fileTypes = ["xlsx", "xlx", "csv"];
 
 const UploadFile = ({ setFileUrl }) => {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  const handleFileChange = (file) => {
+    setFile(file[0]);
+    console.log(file)
   };
 
   const handleUpload = async () => {
@@ -34,9 +40,15 @@ const UploadFile = ({ setFileUrl }) => {
   };
 
   return (
-    <div>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
+    <div className={styles.fileModule}>
+      <FileUploader
+        multiple={true}
+        handleChange={handleFileChange}
+        name="file"
+        types={fileTypes}
+        classes={"dropContainer"}
+      />
+      <button onClick={handleUpload} className={styles.uploadButton}>Upload</button>
       <p>{message}</p>
     </div>
   );

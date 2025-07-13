@@ -17,8 +17,8 @@ const ExcelBasic = () => {
     }, [fileUrl])
 
     return (
-        <div>
-            <div>
+        <div className="app">
+            <div className="appContainer">
                 <UploadFile setFileUrl={ setFileUrl } />
                 {fileUrl && fileUrl !== '' && (
                     <>
